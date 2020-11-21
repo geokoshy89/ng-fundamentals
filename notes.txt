@@ -1,0 +1,5 @@
+1. The bootstrapping starts at module.ts. This file is the entry point for angular.The app module is bootstrapped here.
+2. The component to bootstrap is specified here under bootstrap attribute which would be the app component.
+3. The html selector for the app component is specified in the index html file which will be loaded in the browser.
+4. The assets folder will contain the static files like images which need to be loaded in the web application. 
+5. angular json file will act as the configuration based on which bundling of the app is done by webpack bundler.The static file path,css and js paths are specified here in angular json.
