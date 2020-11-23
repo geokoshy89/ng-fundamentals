@@ -6,3 +6,5 @@ Safe navigation operator allows us to avoid errors due to this
 Eg:event?.name
 '?' is safe navigation operator
 3.Ngif a structural directive for hiding  a element based on expression
+4.When multiple cases are to be dealt while displaying dom content we can use ngSwitch attribute. Th expression
+in ngcase should be same type as one in ngwitch attribute
