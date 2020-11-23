@@ -14,3 +14,8 @@ in ngcase should be same type as one in ngwitch attribute
 6.Classbindings- [class.green]="event?location==='Nasa'"
 For multiple class use ngclass directive for styling 
 [ngClass]={green:event?location==='Nasa',bold:event?location==='Smithsonian'}
+7.Style binding like class binding is possible :
+[style.color]="event?.time==='8:00 am'?#003300:#bbb"
+For multiple styles settings we need to use ngstyle directive like below:
+[ngStyle]="{'color':event?.time==='8:00 am'? '#003300':'#bbb',
+'font-weight':event?.time==='8:00 am'? 'bold':'normal'}"
