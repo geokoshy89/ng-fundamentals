@@ -1,0 +1,2 @@
+1.Ngfor is a structural direcitve which eith adds or removes the dom elements
+  it repeats the element on which it is applied.
