@@ -8,3 +8,6 @@ Eg:event?.name
 3.Ngif a structural directive for hiding  a element based on expression
 4.If frequently shown and hidden,we do not have to remove dom element.Using hidden attribute
 this can be achieved
+5.When multiple cases are to be dealt while displaying dom content we can use ngSwitch attribute. Th expression
+in ngcase should be same type as one in ngwitch attribute
+
