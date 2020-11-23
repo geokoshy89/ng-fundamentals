@@ -6,3 +6,5 @@ Safe navigation operator allows us to avoid errors due to this
 Eg:event?.name
 '?' is safe navigation operator
 3.Ngif a structural directive for hiding  a element based on expression
+4.If frequently shown and hidden,we do not have to remove dom element.Using hidden attribute
+this can be achieved
