@@ -1,2 +1,7 @@
 1.Ngfor is a structural direcitve which eith adds or removes the dom elements
   it repeats the element on which it is applied.
+
+2.Angular2 won't allow undefines refernces in interpolation etc.
+Safe navigation operator allows us to avoid errors due to this
+Eg:event?.name
+'?' is safe navigation operator
