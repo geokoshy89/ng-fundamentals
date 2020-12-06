@@ -19,3 +19,70 @@ For multiple class use ngclass directive for styling
 For multiple styles settings we need to use ngstyle directive like below:
 [ngStyle]="{'color':event?.time==='8:00 am'? '#003300':'#bbb',
 'font-weight':event?.time==='8:00 am'? 'bold':'normal'}"
+8.Service is a way to make business  logic independent of component and inject it as needed thru dependency
+injection.
+9.Router module can be used to provide routing in angular.
+10.Router config can be provided as an router object like below:
+export const appRoutes:Routes=[
+    {path:'events/new',component:CreateEventComponent}]
+11.Router guard gives a way to activate or decactivate navigation from a component:
+//below will restrict navigation to component when id of event is invalid
+    {path:'events/:id',component:EventDetailsComponent,canActivate:[EventRouteActivatot]}
+    Below will deactivate all navigations away from component when a particular operation is incomplete:
+       {path:'events/new',component:CreateEventComponent,
+    canDeactivate:['canDeactivateCreateEvent']}
+
+The canActivate and deactivate attributes can take a class or function as value
+12. We can make a component to load only after related data is loaded using resolver as below:
+    {path:'events',component:EventsListComponent,resolve:{events:EventListResolverService}},
+13.[routerLink]="['/event','event.id']". Router link directive can be used to provide naviation from 
+elements.
+14.routerLinkActive="active" ,this attribute provides styling to active links clicked thru routerLink
+15.The options for routerLinkActive styling can be given like below:
+[routerLinkActiveOptions]="{exact:true}"
+16. We can create custom modules to be lazily loaded and 
+this module can be loaded on particular url navigationthru router as below:
+    {path:'user',loadChildren:()=>UserModule}
+Routes in this custom module will be defined as below:
+    RouterModule.forChild(userRoutes)
+contrary to app modules where the same definition is done as below:
+  RouterModule.forRoot(routes)
+Below explanations where taken from stackoverflow:
+https://stackoverflow.com/questions/49662864/commonmodule-vs-browsermodule-in-angular
+Another difference is as below:
+
+    Root module imports the BrowserModule (if you are rendering in browser). This has the same stuffs as CommonModule but also stuffs that are used for rendering.
+    Now if you are creating a feature module, since you already have BrowserModule imported in your root 
+    module, it does not make sense and it's an overhead to import the Browser module in your 
+    feature module. Also, importing CommonModule  frees feature modules for use on 
+    any target platform (e.g. native mobile platform), not just browsers. That's 
+    why you import CommonModule in your feature modules and BrowserModule in your root module.
+Another explanation:
+
+
+The root application module, AppModule, imports BrowserModule so that it can 
+have all the services that are essential to launch and run a browser app.
+
+Components in the AppModule also need to have access to the Angular 
+directive(Arrtibute Directive, Structural Directive) such as *ngIf, *ngFor and 
+*ngSwitch etc. and these directive are available in CommonModule which is automatically 
+exported by the BrowserModule. This is why we have access to the directives in the components 
+defined in AppModule.
+
+And according to the docs
+
+Only root application module, AppModule , should import BrowserModule 
+and all other feature module should import CommonModule because we only 
+need the Angular directives in feature module and not the services that are required to 
+launch the app(Which are already available in RootModule).
+
+According to this:
+
+When it comes to components, pipes and directives, every feature module should import its 
+own dependencies disregarding if the same dependencies were imported in the root module or 
+in any other feature module.
+
+Difference between forRoot and child can be found in below location:
+https://stackoverflow.com/questions/51500895/angular-forroot-forchild-methods-usage
+17. Barreling can be used to reduce import statement or simplify import statetements this can be seen 
+by referring the index.ts file in event folder and it's usage in app module file
